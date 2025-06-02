@@ -3,7 +3,7 @@ package com.example.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC003Test {
+public class TC003 {
     @Test
     public void testMethod() {
         String tc = System.getProperty("testcase");
