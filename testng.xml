@@ -1,0 +1,9 @@
+<suite name="Suite">
+  <test name="TestCases">
+    <classes>
+      <class name="com.example.tests.TC001Test"/>
+      <class name="com.example.tests.TC002Test"/>
+      <class name="com.example.tests.TC003Test"/>
+    </classes>
+  </test>
+</suite>

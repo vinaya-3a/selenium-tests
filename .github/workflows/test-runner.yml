@@ -1,0 +1,24 @@
+name: Run Specific TestNG Test Cases
+
+on:
+  workflow_dispatch:
+    inputs:
+      testcases:
+        description: 'Test Cases to Run'
+        required: true
+        default: 'tc001'
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+
+      - name: Run Tests
+        run: mvn test
