@@ -2,9 +2,9 @@
 <suite name="TestSuite" parallel="false">
   <test name="TestCases">
     <classes>
-      <class name="com.example.tests.TC001"/>
-      <class name="com.example.tests.TC002"/>
-      <class name="com.example.tests.TC003"/>
+      <class name="com.example.tests.TC001Test"/>
+      <class name="com.example.tests.TC002Test"/>
+      <class name="com.example.tests.TC003Test"/>
     </classes>
   </test>
 </suite>
