@@ -6,7 +6,7 @@ on:
       testcases:
         description: 'Test Cases to Run'
         required: true
-        default: 'tc001'
+        default: 'RunAll'
 
 jobs:
   run-tests:
@@ -27,5 +27,10 @@ jobs:
           server-password: ${{ secrets.GITHUB_TOKEN }}
           overwrite-settings: true
 
-      - name: Run Tests
-        run: mvn test
+      - name: Run tests
+      run: |
+        if [ "${{ github.event.inputs.testcase }}" == "RunAll" ]; then
+          mvn test
+        else
+          mvn test -Dtest=TestSuite#${{ github.event.inputs.testcase }}
+        fi
