@@ -1,31 +1,28 @@
-name: Run Specific TestNG Test Cases
+name: Run Tests
 
 on:
   workflow_dispatch:
     inputs:
-      testcases:
-        description: 'Test Cases to Run'
+      testcase:
+        description: 'Test case to run (e.g. TC001, TC002, TC003)'
         required: true
-        default: 'tc001'
+        default: 'TC001'
 
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
 
-      - name: Set up JDK 17
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'  # ← Add this line
+          distribution: 'temurin'
           java-version: '17'
-          java-package: jdk
-          check-latest: false
-          server-id: github
-          server-username: GITHUB_ACTOR
-          server-password: ${{ secrets.GITHUB_TOKEN }}
-          overwrite-settings: true
 
-      - name: Run Tests
-        run: mvn test
+      - name: Run Selected Test
+        run: |
+          echo "Running test: ${{ github.event.inputs.testcase }}"
+          mvn clean test -Dtest=${{ github.event.inputs.testcase }}
