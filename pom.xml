@@ -21,12 +21,9 @@
       <artifactId>maven-surefire-plugin</artifactId>
       <version>3.0.0-M7</version>
       <configuration>
-        <suiteXmlFiles>
-          <suiteXmlFile>testng.xml</suiteXmlFile>
-        </suiteXmlFiles>
-        <systemPropertyVariables>
-          <testcase>${testcase}</testcase>
-        </systemPropertyVariables>
+        <includes>
+          <include>${testcase}.java</include>
+        </includes>
       </configuration>
     </plugin>
   </plugins>
