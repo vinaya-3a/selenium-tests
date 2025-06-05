@@ -1,0 +1,35 @@
+{
+  "total_duration_ms": 30200,
+  "steps": [
+    {
+      "duration_ms": 27945,
+      "step": "Open browser",
+      "status": "passed"
+    },
+    {
+      "duration_ms": 29322,
+      "step": "Navigated to login page",
+      "status": "passed"
+    },
+    {
+      "duration_ms": 29507,
+      "step": "Entered username",
+      "status": "passed"
+    },
+    {
+      "duration_ms": 29647,
+      "step": "Entered password",
+      "status": "passed"
+    },
+    {
+      "duration_ms": 29869,
+      "step": "Clicked login",
+      "status": "passed"
+    },
+    {
+      "duration_ms": 29886,
+      "step": "Login successful",
+      "status": "passed"
+    }
+  ]
+}
