@@ -1,10 +1,5 @@
 package com.example.tests;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.time.Duration;
 import java.time.Instant;
 
@@ -12,25 +7,30 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 public abstract class BaseTest {
-	protected final JSONArray steps = new JSONArray();
+    protected final JSONArray steps = new JSONArray();
     protected Instant testStartTime;
-    
-    public void runTest() {
+
+    // Changed to return JSONObject with test results instead of writing files here
+    public JSONObject runTest() {
         testStartTime = Instant.now();
+        JSONObject testResult = new JSONObject();
         try {
             executeTest();
-            writeReport(getReportFileName());
         } catch (Exception e) {
             logStep("Test failed with exception: " + e.getMessage(), "failed");
-            try {
-                writeReport(getReportFileName());
-            } catch (IOException | JSONException ex) {
-                ex.printStackTrace();
-            }
         }
+        Instant testEndTime = Instant.now();
+        long totalDurationMs = Duration.between(testStartTime, testEndTime).toMillis();
+
+        try {
+            testResult.put("testCase", this.getClass().getSimpleName());
+            testResult.put("steps", steps);
+            testResult.put("total_duration_ms", totalDurationMs);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return testResult;
     }
 
     protected abstract void executeTest() throws Exception;
@@ -54,24 +54,6 @@ public abstract class BaseTest {
         }
     }
 
-    private void writeReport(String fileName) throws IOException, JSONException {
-        Instant testEndTime = Instant.now();
-        long totalDurationMs = Duration.between(testStartTime, testEndTime).toMillis();
-
-        JSONObject report = new JSONObject();
-        report.put("steps", steps);
-        report.put("total_duration_ms", totalDurationMs);
-
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonContent = mapper.writeValueAsString(report);
-
-        Path path = Paths.get("src/main/resources/static/" + fileName);
-        Files.createDirectories(path.getParent());
-        Files.write(path, jsonContent.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
-        
-        System.out.println("Report written to: " + path.toAbsolutePath());
-    }
-
-    // Each test should define its own unique report filename
-    protected abstract String getReportFileName();
+    // No more writing individual reports here
+    // protected abstract String getReportFileName();  // Can be removed or ignored now
 }

@@ -3,10 +3,9 @@ name: Run Specific TestNG Test Cases
 on:
   workflow_dispatch:
     inputs:
-      testcases:
-        description: 'Test Cases to Run'
+      testcase:
         required: true
-        default: 'tc001'
+        type: string
 
 jobs:
   run-tests:
@@ -27,5 +26,11 @@ jobs:
           server-password: ${{ secrets.GITHUB_TOKEN }}
           overwrite-settings: true
 
-      - name: Run Tests
-        run: mvn test
+      - name: Run tests with selected testcase
+        run: mvn exec:java -Dexec.mainClass="com.example.tests.TestExecutor" -Dtestcase=${{ github.event.inputs.testcase }}
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: src/main/resources/static/
