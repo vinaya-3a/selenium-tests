@@ -32,5 +32,5 @@ jobs:
       - name: Upload Report
         uses: actions/upload-artifact@v4
         with:
-          name: test-report
-          path: src/main/resources/static/
+          name: report
+          path: src/main/resources/static/report.json
