@@ -46,9 +46,4 @@ public class TC001 extends BaseTest{
 
 		driver.quit();
 	}
-
-	@Override
-	protected String getReportFileName() {
-		return "report_tc001.json";
-	}
 }

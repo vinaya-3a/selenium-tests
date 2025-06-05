@@ -13,9 +13,4 @@ public class TC002 extends BaseTest{
         logStep("Step 2 completed", "passed");
         // ... add actual test logic
     }
-
-    @Override
-    protected String getReportFileName() {
-        return "report_tc002.json";
-    }
 }
