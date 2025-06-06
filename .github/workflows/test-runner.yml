@@ -29,8 +29,14 @@ jobs:
       - name: Run tests with selected testcase
         run: mvn exec:java -Dexec.mainClass="com.example.tests.TestExecutor" -Dtestcase=${{ github.event.inputs.testcase }}
 
-      - name: Upload Report Artifact
+      - name: Export latest report filename to env
+        run: |
+          REPORT_PATH=$(ls -t reports/*.json | head -n 1)
+          echo "✅ Found report: $REPORT_PATH"
+          echo "REPORT_FILE=$REPORT_PATH" >> $GITHUB_ENV
+
+      - name: Upload Test Report
         uses: actions/upload-artifact@v4
         with:
           name: test-report
-          path: reports/report.json
+          path: ${{ env.REPORT_FILE }}
