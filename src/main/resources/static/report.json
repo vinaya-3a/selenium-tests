@@ -1,1 +1,41 @@
-{"empty":false,"mapType":"java.util.HashMap"}
+[{
+    "total_duration_ms": 6935,
+    "steps": [
+        {
+            "duration_ms": 3,
+            "step": "Starting TC001",
+            "status": "passed"
+        },
+        {
+            "duration_ms": 2887,
+            "step": "Open browser",
+            "status": "passed"
+        },
+        {
+            "duration_ms": 6321,
+            "step": "Navigated to login page",
+            "status": "passed"
+        },
+        {
+            "duration_ms": 6424,
+            "step": "Entered username",
+            "status": "passed"
+        },
+        {
+            "duration_ms": 6505,
+            "step": "Entered password",
+            "status": "passed"
+        },
+        {
+            "duration_ms": 6655,
+            "step": "Clicked login",
+            "status": "passed"
+        },
+        {
+            "duration_ms": 6667,
+            "step": "Login successful",
+            "status": "passed"
+        }
+    ],
+    "testCase": "TC001"
+}]

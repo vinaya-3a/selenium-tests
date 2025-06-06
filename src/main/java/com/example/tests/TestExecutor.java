@@ -1,48 +1,44 @@
 package com.example.tests;
 
+import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 public class TestExecutor {
+    public static void main(String[] args) throws Exception {
+        String testCase = System.getProperty("testcase", "RunAll");
+        List<BaseTest> testsToRun = new ArrayList<>();
 
-    public static void main(String[] args) throws IOException {
-        String testCase = System.getProperty("testcase", "runall").toLowerCase();
-        System.out.println("Running test case: " + testCase);
-
-        List<JSONObject> allResults = new ArrayList<>();
-
-        if ("tc001".equals(testCase) || "runall".equals(testCase)) {
-            allResults.add(new TC001().runTest());
+        switch (testCase) {
+            case "tc001":
+                testsToRun.add(new TC001());
+                break;
+            case "tc002":
+                testsToRun.add(new TC002()); // if exists
+                break;
+            case "RunAll":
+            default:
+                testsToRun.add(new TC001());
+                // testsToRun.add(new TC002()); // Add more as needed
+                break;
         }
 
-        if ("tc002".equals(testCase) || "runall".equals(testCase)) {
-            allResults.add(new TC002().runTest());
+        JSONArray reportArray = new JSONArray();
+        for (BaseTest test : testsToRun) {
+            JSONObject result = test.runTest();
+            reportArray.put(result);
         }
 
-        // Combine all test results into one JSON report
-        JSONArray resultArray = new JSONArray(allResults);
-        JSONObject finalReport = new JSONObject();
-        finalReport.put("tests", resultArray);
-
-        // Write the combined report JSON file
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonContent = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(finalReport);
-
-        Path path = Paths.get("src/main/resources/static/report.json");
-        Files.createDirectories(path.getParent());
-        Files.write(path, jsonContent.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
-
-        System.out.println("Aggregated report written to: " + path.toAbsolutePath());
-        System.exit(0);
+        // Save to JSON file
+        try (FileWriter file = new FileWriter("src/main/resources/static/report.json")) {
+            file.write(reportArray.toString(4));
+            System.out.println("✅ Saved report.json");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
