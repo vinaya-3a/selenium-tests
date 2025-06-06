@@ -4,7 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -60,10 +62,28 @@ public class TestExecutor {
         finalReport.put("summary", summary);
         finalReport.put("details", reportArray);
 
-        Files.createDirectories(Paths.get("reports")); // ✅ create if not exists
-        try (FileWriter file = new FileWriter("reports/report.json")) {
+        // ✅ Create reports folder if it doesn't exist
+        Files.createDirectories(Paths.get("reports"));
+
+        // ✅ Format timestamp
+        String timestamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
+
+        // ✅ Normalize test case name
+        String normalizedName = testCase.toLowerCase();
+        if (!normalizedName.equals("tc001") && !normalizedName.equals("tc002")) {
+            normalizedName = "runall";
+        }
+
+        // ✅ Generate report file name
+        String reportFileName = "reports/" + normalizedName + "-" + timestamp + ".json";
+
+        // ✅ Write report to file
+        try (FileWriter file = new FileWriter(reportFileName)) {
             file.write(finalReport.toString(4));
-            System.out.println("✅ Saved consolidated report.json");
+            System.out.println("✅ Saved report to: " + reportFileName);
+
+            // ✅ Print filename for Spring Boot to capture
+            System.out.println("REPORT_FILE_NAME=" + reportFileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
