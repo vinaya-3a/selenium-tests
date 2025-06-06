@@ -40,5 +40,6 @@ public class TestExecutor {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.exit(0);
     }
 }

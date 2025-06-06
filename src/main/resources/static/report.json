@@ -1,38 +1,38 @@
 [{
-    "total_duration_ms": 6935,
+    "total_duration_ms": 5031,
     "steps": [
         {
-            "duration_ms": 3,
+            "duration_ms": 2,
             "step": "Starting TC001",
             "status": "passed"
         },
         {
-            "duration_ms": 2887,
+            "duration_ms": 2844,
             "step": "Open browser",
             "status": "passed"
         },
         {
-            "duration_ms": 6321,
+            "duration_ms": 4482,
             "step": "Navigated to login page",
             "status": "passed"
         },
         {
-            "duration_ms": 6424,
+            "duration_ms": 4597,
             "step": "Entered username",
             "status": "passed"
         },
         {
-            "duration_ms": 6505,
+            "duration_ms": 4680,
             "step": "Entered password",
             "status": "passed"
         },
         {
-            "duration_ms": 6655,
+            "duration_ms": 4820,
             "step": "Clicked login",
             "status": "passed"
         },
         {
-            "duration_ms": 6667,
+            "duration_ms": 4831,
             "step": "Login successful",
             "status": "passed"
         }
