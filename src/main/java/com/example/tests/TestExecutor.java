@@ -25,7 +25,7 @@ public class TestExecutor {
             case "runall":
             default:
                 testsToRun.add(new TC001());
-                // testsToRun.add(new TC002());
+                testsToRun.add(new TC002());
                 break;
         }
 
