@@ -1,0 +1,91 @@
+{
+    "summary": {
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0
+    },
+    "details": [
+        {
+            "total_duration_ms": 8902,
+            "steps": [
+                {
+                    "duration_ms": 2,
+                    "step": "Starting TC001",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 2469,
+                    "step": "Open browser",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 6066,
+                    "step": "Navigated to login page",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 6123,
+                    "step": "Assertion Passed: Login page loaded successfully",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 6254,
+                    "step": "Entered username",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 6367,
+                    "step": "Entered password",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 7054,
+                    "step": "Clicked login",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 7076,
+                    "step": "Assertion Passed: Login successful and navigated to Fintech Solutions page",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 8634,
+                    "step": "Assertion Passed: Dashboard loaded successfully",
+                    "status": "passed"
+                }
+            ],
+            "testCase": "TC001"
+        },
+        {
+            "total_duration_ms": 821,
+            "steps": [
+                {
+                    "duration_ms": 0,
+                    "step": "Starting TC002 test",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 0,
+                    "step": "Assertion Passed: Sample assertion always true",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 508,
+                    "step": "Step 1 completed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 820,
+                    "step": "Step 2 completed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 821,
+                    "step": "Assertion Passed: Checking if values are equal",
+                    "status": "passed"
+                }
+            ],
+            "testCase": "TC002"
+        }
+    ]
+}

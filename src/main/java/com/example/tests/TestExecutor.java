@@ -13,18 +13,22 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class TestExecutor {
+    private static final String TC001 = "tc001";
+    private static final String TC002 = "tc002";
+    private static final String RUN_ALL = "runall";
+
     public static void main(String[] args) throws Exception {
-        String testCase = System.getProperty("testcase", "RunAll");
+        String testCase = System.getProperty("testcase", RUN_ALL).toLowerCase();
         List<BaseTest> testsToRun = new ArrayList<>();
 
-        switch (testCase.toLowerCase()) {
-            case "tc001":
+        switch (testCase) {
+            case TC001:
                 testsToRun.add(new TC001());
                 break;
-            case "tc002":
+            case TC002:
                 testsToRun.add(new TC002());
                 break;
-            case "runall":
+            case RUN_ALL:
             default:
                 testsToRun.add(new TC001());
                 testsToRun.add(new TC002());
@@ -32,7 +36,7 @@ public class TestExecutor {
         }
 
         JSONArray reportArray = new JSONArray();
-        int passed = 0, failed = 0;
+        int passed = 0, failed = 0, skipped = 0;
 
         for (BaseTest test : testsToRun) {
             JSONObject result = test.runTest();
@@ -40,53 +44,52 @@ public class TestExecutor {
 
             JSONArray steps = result.getJSONArray("steps");
             boolean testFailed = false;
+            boolean testSkipped = false;
 
             for (int i = 0; i < steps.length(); i++) {
-                JSONObject step = steps.getJSONObject(i);
-                if ("failed".equalsIgnoreCase(step.optString("status"))) {
+                String status = steps.getJSONObject(i).optString("status", "").toLowerCase();
+                if ("failed".equals(status)) {
                     testFailed = true;
                     break;
+                }
+                if ("skipped".equals(status)) {
+                    testSkipped = true;
                 }
             }
 
             if (testFailed) failed++;
+            else if (testSkipped) skipped++;
             else passed++;
         }
 
         JSONObject summary = new JSONObject();
         summary.put("passed", passed);
         summary.put("failed", failed);
-        summary.put("skipped", 0);  // adjust as needed
+        summary.put("skipped", skipped);
 
         JSONObject finalReport = new JSONObject();
         finalReport.put("summary", summary);
         finalReport.put("details", reportArray);
 
-        // ✅ Create reports folder if it doesn't exist
         Files.createDirectories(Paths.get("reports"));
 
-        // ✅ Format timestamp
         String timestamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
 
-        // ✅ Normalize test case name
-        String normalizedName = testCase.toLowerCase();
-        if (!normalizedName.equals("tc001") && !normalizedName.equals("tc002")) {
-            normalizedName = "runall";
-        }
+        String normalizedName = (testCase.equals(TC001) || testCase.equals(TC002)) ? testCase : RUN_ALL;
 
-        // ✅ Generate report file name
         String reportFileName = "reports/" + normalizedName + "-" + timestamp + ".json";
 
-        // ✅ Write report to file
         try (FileWriter file = new FileWriter(reportFileName)) {
             file.write(finalReport.toString(4));
             System.out.println("✅ Saved report to: " + reportFileName);
-
-            // ✅ Print filename for Spring Boot to capture
             System.out.println("REPORT_FILE_NAME=" + reportFileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // Optionally print summary
+        System.out.printf("Tests run: %d, Passed: %d, Failed: %d, Skipped: %d%n", 
+                          testsToRun.size(), passed, failed, skipped);
 
         System.exit(0);
     }

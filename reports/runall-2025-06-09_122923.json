@@ -1,0 +1,91 @@
+{
+    "summary": {
+        "passed": 1,
+        "failed": 1,
+        "skipped": 0
+    },
+    "details": [
+        {
+            "total_duration_ms": 7282,
+            "steps": [
+                {
+                    "duration_ms": 3,
+                    "step": "Starting TC001",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 2239,
+                    "step": "Open browser",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 5921,
+                    "step": "Navigated to login page",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 5987,
+                    "step": "Assertion Passed: Login page loaded successfully",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 6118,
+                    "step": "Entered username",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 6228,
+                    "step": "Entered password",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 7024,
+                    "step": "Clicked login",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 7033,
+                    "step": "Assertion Passed: Login successful and navigated to Fintech Solutions page",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 7282,
+                    "step": "Test failed with exception: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\".landingPage_companyName__2RiNM\"}\n  (Session info: chrome=137.0.7151.69)\nFor documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception\nBuild info: version: '4.31.0', revision: '1ef9f18787*'\nSystem info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [e146f6dfccf06f3beeecd3658fe4ab92, findElement {using=class name, value=landingPage_companyName__2RiNM}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.69, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\\Users\\vinay.a\\AppData\\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52964}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52964/devtoo..., se:cdpVersion: 137.0.7151.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: e146f6dfccf06f3beeecd3658fe4ab92",
+                    "status": "failed"
+                }
+            ],
+            "testCase": "TC001"
+        },
+        {
+            "total_duration_ms": 814,
+            "steps": [
+                {
+                    "duration_ms": 0,
+                    "step": "Starting TC002 test",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 0,
+                    "step": "Assertion Passed: Sample assertion always true",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 505,
+                    "step": "Step 1 completed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 814,
+                    "step": "Step 2 completed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 814,
+                    "step": "Assertion Passed: Checking if values are equal",
+                    "status": "passed"
+                }
+            ],
+            "testCase": "TC002"
+        }
+    ]
+}
