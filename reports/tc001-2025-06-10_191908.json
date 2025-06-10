@@ -1,0 +1,63 @@
+{
+    "summary": {
+        "passed": 0,
+        "failed": 1,
+        "skipped": 0
+    },
+    "details": [{
+        "total_duration_ms": 7369,
+        "steps": [
+            {
+                "duration_ms": 2,
+                "step": "Starting TC001",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 1990,
+                "step": "Open browser",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 4564,
+                "step": "Navigated to login page",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 4638,
+                "step": "Assertion Passed: Login button is displayed",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 4779,
+                "step": "Entered username",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 4892,
+                "step": "Entered password",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 5656,
+                "step": "Clicked login",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 5671,
+                "step": "Verification Failed: Login successful and navigated to Fintech Solutions page",
+                "status": "failed"
+            },
+            {
+                "duration_ms": 7131,
+                "step": "Assertion Passed: Dashboard inventory element is displayed",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 7369,
+                "step": "Closed browser",
+                "status": "passed"
+            }
+        ],
+        "testCase": "TC001"
+    }]
+}

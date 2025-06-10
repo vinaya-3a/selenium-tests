@@ -39,7 +39,26 @@ public class TestExecutor {
         int passed = 0, failed = 0, skipped = 0;
 
         for (BaseTest test : testsToRun) {
-            JSONObject result = test.runTest();
+            JSONObject result;
+
+            try {
+                result = test.runTest();
+            } catch (Exception e) {
+                result = new JSONObject();
+                JSONArray steps = new JSONArray();
+                steps.put(new JSONObject()
+                    .put("step", "Test crashed with unhandled exception")
+                    .put("status", "failed")
+                    .put("duration_ms", 0)
+                    .put("error", e.getMessage()));
+                result.put("testCase", test.getClass().getSimpleName());
+                result.put("steps", steps);
+                result.put("total_duration_ms", 0);
+                failed++;
+                reportArray.put(result);
+                continue;
+            }
+
             reportArray.put(result);
 
             JSONArray steps = result.getJSONArray("steps");
@@ -71,26 +90,25 @@ public class TestExecutor {
         finalReport.put("summary", summary);
         finalReport.put("details", reportArray);
 
-        Files.createDirectories(Paths.get("reports"));
-
         String timestamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
-
         String normalizedName = (testCase.equals(TC001) || testCase.equals(TC002)) ? testCase : RUN_ALL;
-
         String reportFileName = "reports/" + normalizedName + "-" + timestamp + ".json";
 
-        try (FileWriter file = new FileWriter(reportFileName)) {
-            file.write(finalReport.toString(4));
-            System.out.println("✅ Saved report to: " + reportFileName);
-            System.out.println("REPORT_FILE_NAME=" + reportFileName);
+        try {
+            Files.createDirectories(Paths.get("reports"));
+            try (FileWriter file = new FileWriter(reportFileName)) {
+                file.write(finalReport.toString(4));
+                System.out.println("✅ Saved report to: " + reportFileName);
+                System.out.println("REPORT_FILE_NAME=" + reportFileName);
+            }
         } catch (IOException e) {
+            System.err.println("❌ Failed to write report file: " + e.getMessage());
             e.printStackTrace();
         }
 
-        // Optionally print summary
-        System.out.printf("Tests run: %d, Passed: %d, Failed: %d, Skipped: %d%n", 
-                          testsToRun.size(), passed, failed, skipped);
+        System.out.printf("Tests run: %d, Passed: %d, Failed: %d, Skipped: %d%n",
+                testsToRun.size(), passed, failed, skipped);
 
-        System.exit(0);
+        System.exit(failed > 0 ? 1 : 0);
     }
 }

@@ -54,7 +54,7 @@ public abstract class BaseTest {
         }
     }
 
-    // === Assertion Helpers with Logging without TestNG ===
+    // === Assertion Helpers (critical, throws error) ===
 
     protected void assertTrueWithLog(boolean condition, String message) {
         if (condition) {
@@ -87,6 +87,38 @@ public abstract class BaseTest {
         } catch (Exception e) {
             logStep("Assertion Failed: Exception checking " + description + " - " + e.getMessage(), "failed");
             throw new AssertionError(description + " check failed with exception: " + e.getMessage());
+        }
+    }
+
+    // === Verification Helpers (non-critical, doesn't throw) ===
+
+    protected void verifyTrueWithLog(boolean condition, String message) {
+        if (condition) {
+            logStep("Verification Passed: " + message, "passed");
+        } else {
+            logStep("Verification Failed: " + message, "failed");
+        }
+    }
+
+    protected void verifyEqualsWithLog(Object actual, Object expected, String message) {
+        boolean equal = (actual == null && expected == null) || (actual != null && actual.equals(expected));
+        if (equal) {
+            logStep("Verification Passed: " + message, "passed");
+        } else {
+            String failMsg = message + ". Expected: " + expected + ", but was: " + actual;
+            logStep("Verification Failed: " + failMsg, "failed");
+        }
+    }
+
+    protected void verifyElementDisplayed(WebElement element, String description) {
+        try {
+            if (element.isDisplayed()) {
+                logStep("Verification Passed: " + description + " is displayed", "passed");
+            } else {
+                logStep("Verification Failed: " + description + " is not displayed", "failed");
+            }
+        } catch (Exception e) {
+            logStep("Verification Failed: Exception checking " + description + " - " + e.getMessage(), "failed");
         }
     }
 }
