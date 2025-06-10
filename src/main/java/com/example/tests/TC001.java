@@ -52,7 +52,7 @@ public class TC001 extends BaseTest {
 
 			// Assert redirected to inventory page (dashboard)
 			wait.until(ExpectedConditions.urlContains("Fintech"));
-			assertTrueWithLog(driver.getCurrentUrl().contains("Fintech"), "Login successful and navigated to Fintech Solutions page");
+			assertTrueWithLog(driver.getCurrentUrl().contains("vinay"), "Login successful and navigated to Fintech Solutions page");
 
 			// Set implicit wait of 10 seconds
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
