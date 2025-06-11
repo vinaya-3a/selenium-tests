@@ -20,12 +20,12 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-		  java-package: jdk
+          java-package: jdk
           check-latest: false
           server-id: github
           server-username: GITHUB_ACTOR
           server-password: ${{ secrets.GITHUB_TOKEN }}
-          overwrite-settings: true				   
+          overwrite-settings: true
 
       - name: Build and Run Selected Test Case
         run: |
@@ -33,10 +33,10 @@ jobs:
           mvn clean compile exec:java \
             -Dexec.mainClass="com.example.tests.TestExecutor" \
             -Dtestcase=${{ github.event.inputs.testcase }} || echo "❌ Test run failed but continuing"
-        continue-on-error: true  # <--- ✅ ensures workflow continues
+        continue-on-error: true
 
       - name: Export Latest Report Filename
-        if: always()  # <--- ✅ run even after failure
+        if: always()
         id: extract_report
         run: |
           REPORT_PATH=$(ls -t reports/*.json | head -n 1 || echo "")
@@ -55,7 +55,7 @@ jobs:
           cat ${{ env.REPORT_FILE }}
 
       - name: Upload Test Report as Artifact
-        if: always()  # <--- ✅ always attempt to upload
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-report
