@@ -56,7 +56,7 @@ public class TC001 extends BaseTest {
 
             try {
                 wait.until(ExpectedConditions.elementToBeClickable(By.id("Login_loginbtn__7Tj03")));
-                WebElement loginBtn = driver.findElement(By.id("Login_loginbtn__7Tj03"));
+                WebElement loginBtn = driver.findElement(By.id("Login_loginbtn__7Tj"));
                 loginBtn.click();
                 logStep("Clicked login", "passed");
             } catch (Exception e) {
