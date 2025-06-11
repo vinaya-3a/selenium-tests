@@ -1,0 +1,38 @@
+{
+    "summary": {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0
+    },
+    "details": [{
+        "total_duration_ms": 829,
+        "steps": [
+            {
+                "duration_ms": 3,
+                "step": "Starting TC002 test",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 16,
+                "step": "Assertion Passed: Sample assertion always true",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 524,
+                "step": "Step 1 completed",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 829,
+                "step": "Step 2 completed",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 829,
+                "step": "Assertion Passed: Checking if values are equal",
+                "status": "passed"
+            }
+        ],
+        "testCase": "TC002"
+    }]
+}
