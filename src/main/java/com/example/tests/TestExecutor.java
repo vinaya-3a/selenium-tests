@@ -40,7 +40,6 @@ public class TestExecutor {
 
         for (BaseTest test : testsToRun) {
             JSONObject result;
-            boolean testCrashed = false;
 
             try {
                 result = test.runTest();
@@ -75,6 +74,9 @@ public class TestExecutor {
             if (!hasNonSkippedStep) {
                 caseStatus = "skipped";
                 skipped++;
+            } else if (hasFailedStep) {
+                caseStatus = "failed";
+                failed++;
             } else {
                 caseStatus = "passed";
                 passed++;
@@ -113,7 +115,7 @@ public class TestExecutor {
         System.out.printf("Tests run: %d, Passed: %d, Failed: %d, Skipped: %d%n",
                 testsToRun.size(), passed, failed, skipped);
 
-        // Do not fail GitHub Actions for step-level failures
+        // Always exit with 0 to not fail GitHub Actions
         System.exit(0);
     }
 }
