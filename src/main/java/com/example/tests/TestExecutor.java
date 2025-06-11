@@ -109,6 +109,7 @@ public class TestExecutor {
         System.out.printf("Tests run: %d, Passed: %d, Failed: %d, Skipped: %d%n",
                 testsToRun.size(), passed, failed, skipped);
 
-        System.exit(failed > 0 ? 1 : 0);
+        int exitCode = (failed > 0) ? 1 : 0;
+        System.exit(exitCode);
     }
 }
