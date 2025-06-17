@@ -15,7 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class TC002 extends BaseTest {
     @Override
     protected void executeTest() throws Exception {
-        logStep("Starting TC001", "passed");
+        logStep("Starting TC002", "passed");
 
         WebDriverManager.chromedriver().setup();
         System.setProperty("wdm.avoid-auto-download", "true");

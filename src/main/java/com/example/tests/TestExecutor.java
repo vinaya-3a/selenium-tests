@@ -43,11 +43,20 @@ public class TestExecutor {
 
             try {
                 result = test.runTest();
+
+                // If result has empty or no steps, treat it as a crash
+                if (!result.has("steps") || result.getJSONArray("steps").isEmpty()) {
+                    throw new RuntimeException("No steps found in result.");
+                }
+
             } catch (Exception e) {
+                // Check if error already logged in result
+                System.err.println("❌ " + test.getClass().getSimpleName() + " failed with unhandled exception: " + e.getMessage());
+
                 result = new JSONObject();
                 JSONArray steps = new JSONArray();
                 steps.put(new JSONObject()
-                    .put("step", "Test crashed with unhandled exception")
+                    .put("step", "Unhandled exception during test execution")
                     .put("status", "failed")
                     .put("duration_ms", 0)
                     .put("error", e.getMessage()));
@@ -59,6 +68,7 @@ public class TestExecutor {
                 reportArray.put(result);
                 continue;
             }
+
 
             JSONArray steps = result.getJSONArray("steps");
             boolean hasNonSkippedStep = false;

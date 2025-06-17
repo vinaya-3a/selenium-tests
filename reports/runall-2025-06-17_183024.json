@@ -1,0 +1,118 @@
+{
+    "summary": {
+        "passed": 0,
+        "failed": 2,
+        "skipped": 0
+    },
+    "details": [
+        {
+            "total_duration_ms": 20363,
+            "steps": [
+                {
+                    "duration_ms": 2,
+                    "step": "Starting TC001",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 16545,
+                    "step": "Open browser",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 19429,
+                    "step": "Navigated to login page",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 19481,
+                    "step": "Assertion Passed: Login button is displayed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 19643,
+                    "step": "Entered username",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 19737,
+                    "step": "Entered password",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 19894,
+                    "step": "Login click failed: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#Login_loginbtn__7Tj\"}\n  (Session info: chrome=137.0.7151.104)\nFor documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception\nBuild info: version: '4.31.0', revision: '1ef9f18787*'\nSystem info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [f24b1519d388f596c8e0173aae56c642, findElement {using=id, value=Login_loginbtn__7Tj}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.104, chrome: {chromedriverVersion: 137.0.7151.70 (dfa4dc56b2ab..., userDataDir: C:\\Users\\vinay.a\\AppData\\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51842}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51842/devtoo..., se:cdpVersion: 137.0.7151.104, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: f24b1519d388f596c8e0173aae56c642",
+                    "status": "failed"
+                },
+                {
+                    "duration_ms": 20362,
+                    "step": "Closed browser",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 20363,
+                    "step": "Test failed with exception: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#Login_loginbtn__7Tj\"}\n  (Session info: chrome=137.0.7151.104)\nFor documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception\nBuild info: version: '4.31.0', revision: '1ef9f18787*'\nSystem info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [f24b1519d388f596c8e0173aae56c642, findElement {using=id, value=Login_loginbtn__7Tj}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.104, chrome: {chromedriverVersion: 137.0.7151.70 (dfa4dc56b2ab..., userDataDir: C:\\Users\\vinay.a\\AppData\\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51842}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51842/devtoo..., se:cdpVersion: 137.0.7151.104, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: f24b1519d388f596c8e0173aae56c642",
+                    "status": "failed"
+                }
+            ],
+            "testCase": "TC001",
+            "status": "failed"
+        },
+        {
+            "total_duration_ms": 11287,
+            "steps": [
+                {
+                    "duration_ms": 0,
+                    "step": "Starting TC001",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 3547,
+                    "step": "Open browser",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 7815,
+                    "step": "Navigated to login page",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 7952,
+                    "step": "Assertion Passed: Login button is displayed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 8094,
+                    "step": "Entered username",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 8198,
+                    "step": "Entered password",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 8867,
+                    "step": "Clicked login",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 8881,
+                    "step": "Verification Failed: Login successful and navigated to Fintech Solutions page",
+                    "status": "failed"
+                },
+                {
+                    "duration_ms": 10620,
+                    "step": "Assertion Passed: Dashboard inventory element is displayed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 11287,
+                    "step": "Closed browser",
+                    "status": "passed"
+                }
+            ],
+            "testCase": "TC002",
+            "status": "failed"
+        }
+    ]
+}
