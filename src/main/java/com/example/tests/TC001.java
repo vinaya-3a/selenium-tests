@@ -66,7 +66,7 @@ public class TC001 extends BaseTest {
 
             try {
                 wait.until(ExpectedConditions.urlContains("Fintech"));
-                verifyTrueWithLog(driver.getCurrentUrl().contains("Vinay"),
+                verifyTrueWithLog(driver.getCurrentUrl().contains("Fintech"),
                         "Login successful and navigated to Fintech Solutions page");
             } catch (Exception e) {
                 logStep("URL validation failed after login: " + e.getMessage(), "failed");
