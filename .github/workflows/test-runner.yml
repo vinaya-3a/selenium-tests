@@ -3,7 +3,7 @@ name: Run Specific TestNG Test Cases
 on:
   workflow_dispatch:
     inputs:
-      testcase:           # this now holds class names, possibly comma-separated
+      testcase:
         required: true
         type: string
 
@@ -13,48 +13,42 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
+          java-package: jdk
+          check-latest: false
+          server-id: github
+          server-username: GITHUB_ACTOR
+          server-password: ${{ secrets.GITHUB_TOKEN }}
+          overwrite-settings: true
 
-      - name: Print Incoming Test Classes
+      - name: Build and Run Selected Test Case
         run: |
-          echo "🧪 Classes Received to Execute:"
-          echo "${{ github.event.inputs.testcase }}"
-
-      # Updated: execute specific test cases using Maven -Dtest
-      - name: Build and Execute Selected Test Classes
-        run: |
-          mvn clean test -Dtest="${{ github.event.inputs.testcase }}" \
-            || echo "❌ Test run failed but continuing"
+          echo "⚙️ Running test case: ${{ github.event.inputs.testcase }}"
+          mvn clean compile exec:java \
+            -Dexec.mainClass="com.example.tests.TestExecutor" \
+            -Dtestcase=${{ github.event.inputs.testcase }} || echo "❌ Test run failed but continuing"
         continue-on-error: true
-
-      # Ensure a consolidated report.json is always generated in /reports
-      - name: Ensure Report Exists
-        if: always()
-        run: |
-          mkdir -p reports
-          if ls reports/*.json 1> /dev/null 2>&1; then
-            echo "✔ Reports Found"
-          else
-            echo "⚠ No JSON report found. Creating empty report."
-            echo '{"summary":{"passed":0,"failed":0,"skipped":0},"details":[]}' > reports/empty-report.json
-          fi
 
       - name: Export Latest Report Filename
         if: always()
         id: extract_report
         run: |
           REPORT_PATH=$(ls -t reports/*.json | head -n 1 || echo "")
-          echo "🗂 Latest Report: $REPORT_PATH"
+          if [ -z "$REPORT_PATH" ]; then
+            echo "❌ No report file found"
+            exit 1
+          fi
+          echo "✅ Found report: $REPORT_PATH"
           echo "REPORT_FILE=$REPORT_PATH" >> $GITHUB_ENV
           echo "report_file=$REPORT_PATH" >> $GITHUB_OUTPUT
 
-      - name: Print Report Content (Debugging Only)
+      - name: Print Report Content (optional)
         if: always()
         run: |
           echo "📄 Report Content:"
