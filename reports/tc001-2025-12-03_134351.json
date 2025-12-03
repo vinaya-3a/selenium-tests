@@ -1,11 +1,11 @@
 {
     "summary": {
-        "passed": 0,
-        "failed": 1,
+        "passed": 1,
+        "failed": 0,
         "skipped": 0
     },
     "details": [{
-        "total_duration_ms": 7369,
+        "total_duration_ms": 13668,
         "steps": [
             {
                 "duration_ms": 2,
@@ -13,51 +13,52 @@
                 "status": "passed"
             },
             {
-                "duration_ms": 1990,
+                "duration_ms": 4083,
                 "step": "Open browser",
                 "status": "passed"
             },
             {
-                "duration_ms": 4564,
+                "duration_ms": 6790,
                 "step": "Navigated to login page",
                 "status": "passed"
             },
             {
-                "duration_ms": 4638,
+                "duration_ms": 7135,
                 "step": "Assertion Passed: Login button is displayed",
                 "status": "passed"
             },
             {
-                "duration_ms": 4779,
+                "duration_ms": 7284,
                 "step": "Entered username",
                 "status": "passed"
             },
             {
-                "duration_ms": 4892,
+                "duration_ms": 7394,
                 "step": "Entered password",
                 "status": "passed"
             },
             {
-                "duration_ms": 5656,
+                "duration_ms": 7964,
                 "step": "Clicked login",
                 "status": "passed"
             },
             {
-                "duration_ms": 5671,
-                "step": "Verification Failed: Login successful and navigated to Fintech Solutions page",
-                "status": "failed"
+                "duration_ms": 7982,
+                "step": "Verification Passed: Login successful and navigated to Fintech Solutions page",
+                "status": "passed"
             },
             {
-                "duration_ms": 7131,
+                "duration_ms": 13388,
                 "step": "Assertion Passed: Dashboard inventory element is displayed",
                 "status": "passed"
             },
             {
-                "duration_ms": 7369,
+                "duration_ms": 13668,
                 "step": "Closed browser",
                 "status": "passed"
             }
         ],
-        "testCase": "TC001"
+        "testCase": "TC001",
+        "status": "passed"
     }]
 }

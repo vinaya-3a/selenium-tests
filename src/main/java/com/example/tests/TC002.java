@@ -30,7 +30,7 @@ public class TC002 extends BaseTest {
         logStep("Open browser", "passed");
 
         try {
-            driver.get("https://uat.qaconnector.com/Fintech/tenantLogin");
+            driver.get("https://appuat.qaconnector.com/Fintech/login");
             logStep("Navigated to login page", "passed");
 
             try {

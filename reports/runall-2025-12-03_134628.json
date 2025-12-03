@@ -1,0 +1,123 @@
+{
+    "summary": {
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0
+    },
+    "details": [
+        {
+            "total_duration_ms": 11804,
+            "steps": [
+                {
+                    "duration_ms": 3,
+                    "step": "Starting TC001",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 2306,
+                    "step": "Open browser",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 5052,
+                    "step": "Navigated to login page",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 5136,
+                    "step": "Assertion Passed: Login button is displayed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 5273,
+                    "step": "Entered username",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 5498,
+                    "step": "Entered password",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 6082,
+                    "step": "Clicked login",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 6101,
+                    "step": "Verification Passed: Login successful and navigated to Fintech Solutions page",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 11412,
+                    "step": "Assertion Passed: Dashboard inventory element is displayed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 11804,
+                    "step": "Closed browser",
+                    "status": "passed"
+                }
+            ],
+            "testCase": "TC001",
+            "status": "passed"
+        },
+        {
+            "total_duration_ms": 10519,
+            "steps": [
+                {
+                    "duration_ms": 0,
+                    "step": "Starting TC002",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 1057,
+                    "step": "Open browser",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 3969,
+                    "step": "Navigated to login page",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 4036,
+                    "step": "Assertion Passed: Login button is displayed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 4195,
+                    "step": "Entered username",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 4392,
+                    "step": "Entered password",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 5019,
+                    "step": "Clicked login",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 5035,
+                    "step": "Verification Passed: Login successful and navigated to Fintech Solutions page",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 10216,
+                    "step": "Assertion Passed: Dashboard inventory element is displayed",
+                    "status": "passed"
+                },
+                {
+                    "duration_ms": 10519,
+                    "step": "Closed browser",
+                    "status": "passed"
+                }
+            ],
+            "testCase": "TC002",
+            "status": "passed"
+        }
+    ]
+}

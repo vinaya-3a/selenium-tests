@@ -30,7 +30,7 @@ public class TC001 extends BaseTest {
         logStep("Open browser", "passed");
 
         try {
-            driver.get("https://uat.qaconnector.com/Fintech/tenantLogin");
+            driver.get("https://appuat.qaconnector.com/Fintech/login");
             logStep("Navigated to login page", "passed");
 
             try {
@@ -56,7 +56,7 @@ public class TC001 extends BaseTest {
 
             try {
                 wait.until(ExpectedConditions.elementToBeClickable(By.id("Login_loginbtn__7Tj03")));
-                WebElement loginBtn = driver.findElement(By.id("Login_loginbtn__7Tj"));
+                WebElement loginBtn = driver.findElement(By.id("Login_loginbtn__7Tj03"));
                 loginBtn.click();
                 logStep("Clicked login", "passed");
             } catch (Exception e) {

@@ -6,58 +6,48 @@
     },
     "details": [
         {
-            "total_duration_ms": 16030,
+            "total_duration_ms": 4482,
             "steps": [
                 {
-                    "duration_ms": 1,
+                    "duration_ms": 2,
                     "step": "Starting TC001",
                     "status": "passed"
                 },
                 {
-                    "duration_ms": 10365,
+                    "duration_ms": 2661,
                     "step": "Open browser",
                     "status": "passed"
                 },
                 {
-                    "duration_ms": 12608,
+                    "duration_ms": 3850,
                     "step": "Navigated to login page",
                     "status": "passed"
                 },
                 {
-                    "duration_ms": 12900,
-                    "step": "Assertion Passed: Login page loaded successfully",
-                    "status": "passed"
-                },
-                {
-                    "duration_ms": 13090,
+                    "duration_ms": 3969,
                     "step": "Entered username",
                     "status": "passed"
                 },
                 {
-                    "duration_ms": 13179,
+                    "duration_ms": 4060,
                     "step": "Entered password",
                     "status": "passed"
                 },
                 {
-                    "duration_ms": 13637,
+                    "duration_ms": 4232,
                     "step": "Clicked login",
                     "status": "passed"
                 },
                 {
-                    "duration_ms": 13653,
-                    "step": "Assertion Passed: Login successful and navigated to Fintech Solutions page",
-                    "status": "passed"
-                },
-                {
-                    "duration_ms": 15214,
-                    "step": "Assertion Passed: Dashboard loaded successfully",
+                    "duration_ms": 4246,
+                    "step": "Login successful",
                     "status": "passed"
                 }
             ],
             "testCase": "TC001"
         },
         {
-            "total_duration_ms": 818,
+            "total_duration_ms": 814,
             "steps": [
                 {
                     "duration_ms": 0,
@@ -65,23 +55,13 @@
                     "status": "passed"
                 },
                 {
-                    "duration_ms": 0,
-                    "step": "Assertion Passed: Sample assertion always true",
-                    "status": "passed"
-                },
-                {
-                    "duration_ms": 506,
+                    "duration_ms": 504,
                     "step": "Step 1 completed",
                     "status": "passed"
                 },
                 {
-                    "duration_ms": 816,
+                    "duration_ms": 814,
                     "step": "Step 2 completed",
-                    "status": "passed"
-                },
-                {
-                    "duration_ms": 818,
-                    "step": "Assertion Passed: Checking if values are equal",
                     "status": "passed"
                 }
             ],

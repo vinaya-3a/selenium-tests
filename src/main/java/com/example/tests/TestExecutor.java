@@ -22,18 +22,25 @@ public class TestExecutor {
         List<BaseTest> testsToRun = new ArrayList<>();
 
         switch (testCase) {
-            case TC001:
-                testsToRun.add(new TC001());
-                break;
-            case TC002:
-                testsToRun.add(new TC002());
-                break;
-            case RUN_ALL:
-            default:
-                testsToRun.add(new TC001());
-                testsToRun.add(new TC002());
-                break;
-        }
+        case TC001:
+            testsToRun.add(new TC001());
+            break;
+
+        case TC002:
+            testsToRun.add(new TC002());
+            break;
+
+        case RUN_ALL:
+            testsToRun.add(new TC001());
+            testsToRun.add(new TC002());
+            break;
+
+        default:
+            System.err.println("❌ ERROR: Test case '" + testCase + "' does not exist.");
+            System.err.println("Available test cases: tc001, tc002, runall");
+            System.exit(1); // Stop execution
+    }
+
 
         JSONArray reportArray = new JSONArray();
         int passed = 0, failed = 0, skipped = 0;

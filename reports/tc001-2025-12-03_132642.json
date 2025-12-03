@@ -1,0 +1,64 @@
+{
+    "summary": {
+        "passed": 0,
+        "failed": 1,
+        "skipped": 0
+    },
+    "details": [{
+        "total_duration_ms": 66514,
+        "steps": [
+            {
+                "duration_ms": 2,
+                "step": "Starting TC001",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 2070,
+                "step": "Open browser",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 3682,
+                "step": "Navigated to login page",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 5450,
+                "step": "Assertion Passed: Login button is displayed",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 5589,
+                "step": "Entered username",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 5770,
+                "step": "Entered password",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 5945,
+                "step": "Clicked login",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 66220,
+                "step": "URL validation failed after login: Expected condition failed: waiting for url to contain \"Fintech\". Current url: \"https://appqa.qaconnector.com/\" (tried for 60 second(s) with 500 milliseconds interval)\nBuild info: version: '4.31.0', revision: '1ef9f18787*'\nSystem info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\\Users\\vinay.a\\AppData\\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64519}, goog:processID: 29032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64519/devtoo..., se:cdpVersion: 142.0.7444.176, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: d9a9bfb4e5ae32082df4ff85eed05784",
+                "status": "failed"
+            },
+            {
+                "duration_ms": 66514,
+                "step": "Closed browser",
+                "status": "passed"
+            },
+            {
+                "duration_ms": 66514,
+                "step": "Test failed with exception: Expected condition failed: waiting for url to contain \"Fintech\". Current url: \"https://appqa.qaconnector.com/\" (tried for 60 second(s) with 500 milliseconds interval)\nBuild info: version: '4.31.0', revision: '1ef9f18787*'\nSystem info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\\Users\\vinay.a\\AppData\\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64519}, goog:processID: 29032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64519/devtoo..., se:cdpVersion: 142.0.7444.176, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: d9a9bfb4e5ae32082df4ff85eed05784",
+                "status": "failed"
+            }
+        ],
+        "testCase": "TC001",
+        "status": "failed"
+    }]
+}
